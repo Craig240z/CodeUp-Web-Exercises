@@ -1,0 +1,74 @@
+/*
+
+Patern of style definition
+selector {
+		property1: value1;
+		property2: value2;
+}
+
+*/
+h1 { 
+	text-decoration: overline underline;
+	text-align: right;
+}
+
+ul { 
+	list-style: disc;
+}
+
+body {
+	background-color: blue;
+	background-color: Red;
+	background-color: gray;
+	background-color: papayawhip;
+}
+
+main { 
+	background-color: salmon;
+}
+
+#wrapper {
+	background-color: pink;
+	max-width: 500px;
+}
+
+.fancy-header {
+	color: blue;
+	text-decoration: underline;
+}
+
+.languages {
+	color: green;
+}
+
+.normaltext {
+		font-size: 1em;
+}
+
+#wrapper h2 {
+	font-size: 1em;
+	color: yellow;
+}
+
+#wrapper>h2 {
+	color: red;
+}
+a:link {
+	color: salmon;
+}
+
+a:visited {
+	color: royalblue;
+}
+
+a:hover {
+	color: green;
+}
+
+a:active {
+	color: black;
+}
+
+element {
+	background - image: url(https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0CAcQjRxqFQoTCKOat4nwksgCFcKKDQod2nUPaQ&url=http%3A%2F%2Fcaptainawkward.com%2F2011%2F01%2F17%2Freader-question-4-my-friend-is-dating-someone-terrible-or-secrets-of-the-darth-vader-boyfriend%2F&psig=AFQjCNEcO-yOuPecsy1KZqchfw8Hg34Tjw&ust=1443294214822911);
+}

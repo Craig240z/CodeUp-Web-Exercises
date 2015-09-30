@@ -1,0 +1,30 @@
+body {
+    background-color: white;
+}
+
+h1 {
+    padding-top: 200px;
+    clear: left;
+}
+
+#us-flag1 {
+    font-family: "Sans Serif New", Sans Serif;
+    font-size: 100px;
+    margin-top: -20px;
+
+}
+
+#us-flag2 {
+    font-family: "Times New Roman", Times, Serif;
+    font-size: 50px;
+    font-weight: bold;
+    margin-bottom: 70px;
+}
+
+.red {
+    color: red;
+}
+
+.blue {
+    color: blue;
+}

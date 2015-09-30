@@ -1,0 +1,46 @@
+body {
+    background-color: pink;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    float: left;
+}
+
+nav a {
+    display: block;
+    width: 90;
+    background-color: grey;
+    border: 1px solid black;
+}
+
+nav a:link {
+    text-decoration: none;
+
+}
+
+nav a:visited {
+    color: blue;
+}
+
+nav a:active {
+
+}
+
+nav a:hover {
+    background-color: blue;
+    color: yellow;
+}
+
+h1 {
+    clear:left;
+    width: 250px;
+    border: 1px solid black;
+    background-color: red;
+    color: yellow;
+}

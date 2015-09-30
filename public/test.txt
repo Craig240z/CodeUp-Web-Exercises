@@ -1,0 +1,27 @@
+<DOCTYPE html>
+<html>	
+<head>
+	<title>This is a title</title>
+
+</head>
+<body>
+
+	<main>
+		<h1>My Posts</h1>
+
+		<p><a href="http://google.com"></a>
+
+		#from
+
+		<a id="top">My Posts</a>
+		<h2 id="from">From S Side<
+		
+		<a href="#top"
+	</main>
+
+	<footer>
+		<- - footer items - ->
+	</footer>
+
+</body>
+</htmi>
