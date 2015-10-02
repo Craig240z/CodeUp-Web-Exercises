@@ -1,0 +1,31 @@
+git
+    permanet record
+    time machine
+
+repositories
+    local -  on your own machine
+    remote - on githubcom
+
+starting a repo
+    create a new remote repo at http://github.com/new
+    create a new local repo in the local folder
+        - cd ~/vagrant-lamp/sites/codeup.dev/
+        - git init
+        - git add filename.html css/site.css
+            - git add .     "does new or modified but not deleted"
+            - git add -A    "adds all the things"
+            - git add *.any file extension
+        - git commit
+        - git statue at any time
+        - git remote add origin <remote repo addy>
+        - git push -u origin master
+        - git commit -m 'selector files'*Example
+        - git reset  'resets before commiting'
+        - git reset HEAD  'index and working tree'
+
+working in an existing repo
+    - add and modify files
+    - git status
+    - git add filename.html or git add -A
+    - git commit
+    - git push origin master
