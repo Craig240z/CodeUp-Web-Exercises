@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>My First JavaScript Calculator</title>
+    <link rel="stylesheet" type="text/css" href="css/calculator_js.css">
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+</head>
+<body>
+    <main class="container">
+
+    <h1>Calculator</h1>
+
+    <div class="calculator">
+
+            <input id="total">
+
+        <div class='input'>
+            <input id="firstinput">
+            <input id="secondinput">
+            <input id="thirdinput">
+        </div>
+    <div class="buttons">
+            
+        <div class="row1">
+            <button id="clear" data-value="C">C</button>
+            <button class="btn btn-default number" id="7" data-value="7">7</button>
+            <button class="btn btn-default number" id="8" data-value="8">8</button>
+            <button class="btn btn-default number" id="9" data-value="9">9</button>
+        </div>
+
+            
+        
+        <div class="row2">
+            <button class="operator" id="/" data-value="/">/</button>
+            <button class="btn btn-default btn-sm number" id="4" data-value="4">4</button>
+            <button class="btn btn-default number" id="5" data-value="5">5</button>
+            <button class="btn btn-default number" id="6" data-value="6">6</button>
+         </div>
+
+            
+       
+        <div class="row3">
+            <button class="operator" id="*" data-value="*">*</button>
+            <button class="btn btn-default number" id="1" data-value="1">1</button>
+            <button class="btn btn-default number" id="2" data-value="2">2</button>
+            <button class="btn btn-default number" id="3" data-value="3">3</button>
+        </div>
+
+            
+        <div class="row4">
+            <button class="operator" id="-" data-value="-">-</button>
+            <button id="decimal" data-value=".">.</button>
+            <button class="btn btn-default number" id="0" data-value="0">0</button>
+            <button id="equals" data-value="=">=</button>
+            <button class="operator" id="+" data-value="+">+</button> 
+        </div>
+       </div> 
+    </div>
+
+    </main>
+    <script src="js/calculator_js.js"></script>
+</body>
+</html>

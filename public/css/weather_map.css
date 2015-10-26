@@ -1,0 +1,21 @@
+.container {
+    background-color: #00F0DD;
+}
+.col-md-4 {
+    background-color: #D0D0D0;
+    padding: 0px;
+    margin: 5px;
+    width: 275px;
+    text-align: center;
+}
+#map-canvas {
+    padding: 5px;
+    margin: 10px;
+    width: 770px;
+    height: 481px;
+    
+}
+#header {
+    text-align: center;
+    margin: 25px;
+}

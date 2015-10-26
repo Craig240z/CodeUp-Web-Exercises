@@ -1,0 +1,91 @@
+.container {
+    background-color: blue;
+    width:50px;
+    height: 100%;
+    margin: auto;
+    border: 100%;
+}
+
+.buttons {
+    width: 20%;
+    border: 1px solid black;
+}
+
+.number,.operator {
+    width: 15%;
+    margin: 2%;
+}
+.calculator {
+    width: 100%;
+}
+#total {
+    text-align: center;
+    width: 20%;
+    height: 35px;
+}
+.input {
+    text-align: center;
+}
+
+#firstinput {
+    width: 50px;
+    height: 35px;
+}
+
+#secondinput {
+    width: 50px;
+    height: 35px;
+}
+
+#thirdinput {
+    width: 50px;
+    height: 35px;
+}
+
+#total {
+
+}
+
+#clear {
+
+    width: 50px;
+    height: 30px;
+}
+
+#decimal {
+
+}
+
+#equals {
+
+}
+
+#
+.row1 {
+    text-align: 20%;
+}
+
+
+.row2 {
+
+}
+
+.row3 {
+
+}
+
+.row4 {
+
+}
+
+h1 {
+    text-align:center;
+    
+}
+
+.text {
+    box-sizing:border-box;
+    width: 20px;
+    height: 5px;
+    float: left;
+    margin:2px;
