@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf=8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>San Antonio Weather</title>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDlVp0Bd_5i27gI7Np1nJBMW0MU1t3G4U4"></script>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/weather_map.css">
+</head>
+<body>
+    <div class="container">
+        <h1 id="header">Three Day Weather Forecast</h1>
+        <div>
+            <button id="btn">Submit</button>
+            <input type="text" id="latitude" name="latitude" placeholder="Latitude">
+            <input type="text" id="longitude" name="longitude" placeholder="Longitude">
+        </div>
+        <div class="row" id="forecast"></div>
+        <div id="map-canvas"></div>
+    </div>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/weather_map.js"></script>
+<!-- <script type="text/javascript" src="js/bootstap.min.js"></script> -->
+<script type="text/javascript" src="js/moment.js"></script>
+</body>
+</html>

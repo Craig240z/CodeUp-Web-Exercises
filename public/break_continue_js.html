@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Break and Continue Exercise</title>
+</head>
+<body>
+
+    <h1>Break and Continue Exercise</h1>
+
+<script>
+    "use strict"
+
+    // keep getting a new randomnumber until it is odd
+    do {
+         // use Math.floor(Math.random()*50)+1 to generate a random number from 1-50
+        var random = Math.floor((Math.random() * 50) +1);
+
+        if(random % 2 !== 0) {
+            console.log(random + ' is odd');
+            break;
+        }
+
+            console.log(random + ' was even. Generating a new random number.');
+    }   while(random % 2 == 0);
+            
+        console.log('Random odd number to skip is: '  + random);
+
+        for(var i = 1; i <50; i+=2) {
+            // if random is equal to i,
+            // output "yikes, skipping number: " + random
+            if(i == random) {
+                console.log('Yikes! Skipping number ' + random);
+                continue;
+            }
+
+            console.log('Here is an odd number: ' + i);
+
+        }
+
+    // use console.log to log all the odd numbers from 1-50, except for the randomnumber generated using "break" and "continue".
+
+    // Output should look like:
+    // Random odd number to skip is 5
+    // Here is an odd number: 1
+</script>    
+
+</body>
+</html>
