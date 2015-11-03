@@ -1,0 +1,55 @@
+JS vs. PHP
+
+JS gets input and puts output in the browser, after the page loads
+JS is client language == language of the browser
+
+PHP accepts inputs heading to the server
+PHP produces output on the server
+PHP produces output for the browser (render HTML)
+===================
+
+PHP render HTML to browser
+browser show HTML
+JS handles behavior and interactivity IN the browser
+
+var data = {
+    "name": "Ryan",
+    "languages": [
+    'HTML',
+    'CSS']
+}
+
+
+conditonals in JS - 
+    - outcome of something
+    - if checkbox is checked
+    - check the state of elements in the DOM
+    - check properties of given elements or matched elements
+    - filtering data
+    - make decisions based on criteria in the if statement
+    - condition of things in the DOM, state of things, sttributes
+    - events - onload, click, keydown, keypress, focus, unfocus...
+
+conditional in PHP (or any server side language)
+true && true   t
+true && false  
+
+PHP - Server Side language
+    Conditionals -
+        - Respond to requests (GET, POST)
+        - Access Databases
+        - read/write files .txt, .csv
+        - 
+
+Keep this front of mind:
+- Anything you can echo with PHP, you can echo onto HTML
+- Most syntax is the same for PHP as JS
+    - if, else, elseif
+    - loops
+    - function definitions
+- Feelings
+    - WTF, JS?
+    - fundamentals
+    - 
+
+<p class="name"> <?php echo $name; ?> </p>
