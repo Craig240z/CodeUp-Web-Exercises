@@ -8,11 +8,9 @@
  if ($x < $y && $y < $z) {
     echo "{$x} < {$y} < {$z}\n";
  }
-
  // if $x is greater than 0 OR less than 10, echo the result as a sentence "$x is greater than 0 OR less than 10".
 if ($x > 0 || $x < 10) {
     echo "$x is greater than 0 OR less than 10" . PHP_EOL;
-
 }
  // repeat the if statement for $y and $z.
 if ($y > 0 || $y < 10) {
