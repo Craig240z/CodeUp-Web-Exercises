@@ -30,10 +30,12 @@ $books = array(
     array('title' => 'A Tale of Two Cities', 'published' => 1859, 'author' => 'Charles Dickens', 'pages' => 544),
 );
 
-foreach ($books as $book1) {
-    foreach ($book1 as $key => $value) {
-        echo "Book $key $value" . PHP_EOL;
+foreach ($books as $title => $book1) {
+    if ($book1['published'] > 1950) {
+        echo "Published $key $value" . PHP_EOL;
+        foreach ($book1 as $key => $value) {
+            echo "Book $key $value" . PHP_EOL;
     }
     echo PHP_EOL;
-// ['title']}, {$book['published']}, {$book['author']}, {$book['pages']}." 
+}
 }
