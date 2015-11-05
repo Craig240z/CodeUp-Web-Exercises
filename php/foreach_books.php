@@ -33,8 +33,8 @@ $books = array(
 foreach ($books as $title => $book1) {
     if ($book1['Published'] > 1950) {
         echo $title . PHP_EOL;
-        foreach ($book1 as $key => $value) {
-            echo "Book: $key $value" . PHP_EOL;
+        foreach ($book1 as $published => $value) {
+            echo "Book: $published: $value" . PHP_EOL;
     }
     echo PHP_EOL;
 }

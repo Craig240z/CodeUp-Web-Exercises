@@ -8,8 +8,16 @@
 // }
 
 for ($i = 1; $i <= 100; $i++) {
-    echo $i . PHP_EOL;
-    if ($i % 1 == 0) {
+    if ($i % 2 != 0) {
         continue;
     }
+    echo $i . PHP_EOL;
+    echo "^ is an even number." . PHP_EOL;
+}
+
+for ($i = 1; $i <= 100; $i++) {
+    if ($i > 10) {
+        break;
+    }
+    echo "$i" . PHP_EOL;
 }
