@@ -3,7 +3,11 @@
 $things = array('Sgt. Pepper', "11", null, array(1,2,3), 3.14, "12 + 7", false, (string) 11);
 
 foreach ($things as $items) {
-    echo "{$items}" . PHP_EOL;
+    // echo "{$items}" . PHP_EOL;
+} if (is_integer($items)) {
+    echo "Integer is {$items}" . PHP_EOL;
+} else if (is_float($items)) {
+    echo "Float is {$items}" . PHP_EOL;
 }
 // for ($i = 0; $i < count($things); $i++) {
     // if (is_array($things[$i])) {
