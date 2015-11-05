@@ -3,12 +3,12 @@
 $things = array('Sgt. Pepper', "11", null, array(1,2,3), 3.14, "12 + 7", false, (string) 11);
 
 foreach ($things as $items) {
-    echo "\$things has a value of {$items}" . PHP_EOL;
+    echo "{$items}" . PHP_EOL;
 }
 // for ($i = 0; $i < count($things); $i++) {
     // if (is_array($things[$i])) {
         // for ($b = 0; $b < count($things[$i]); $b++) {
-            // echo "{$things[$i][$b]}, " . PHP_EOL;
+            // echo "{$things[$i][$b]}, ";
         // }
             // echo PHP_EOL;
 
