@@ -4,16 +4,22 @@ $things = array('Sgt. Pepper', "11", null, array(1,2,3), 3.14, "12 + 7", false, 
 
 for ($i = 0; $i < count($things); $i++) {
     if (is_array($things[$i])) {
-        echo  "index {$i} This is an array" . PHP_EOL;
+        for ($b = 0; $b < count($things[$i]); $b++) {
+            echo "{$things[$i][$b]}, ";
+        }
+            echo PHP_EOL;
+
+    } else if (is_scalar($things[$i])) {
+        echo "{$things[$i]}" . PHP_EOL;
     } else if (is_bool($things[$i])) {
-        echo "index {$i} This is a boolean" . PHP_EOL;
+        echo "{$things[$i]}" . PHP_EOL;
     } else if (is_float($things[$i])) {
-        echo "index {$i} This is a float" . PHP_EOL;
+        echo "{$things[$i]}" . PHP_EOL;
     } else if (is_integer($things[$i])) {
-        echo "index {$i} This is a integer" . PHP_EOL;
+        echo "{$things[$i]}" . PHP_EOL;
     } else if (is_null($things[$i])) {
-        echo "index {$i} This is null" . PHP_EOL;
-    }else if (is_string($things[$i])) {
-        echo "index {$i} This is a string" . PHP_EOL;
+        echo "{$things[$i]}" . PHP_EOL;
+    } else if (is_string($things[$i])) {
+        echo "{$things[$i]}" . PHP_EOL;
     }
-    }
+}
