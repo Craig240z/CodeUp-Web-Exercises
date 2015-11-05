@@ -11,15 +11,15 @@ for ($i = 0; $i < count($things); $i++) {
 
     } else if (is_scalar($things[$i])) {
         echo "{$things[$i]}" . PHP_EOL;
-    } else if (is_bool($things[$i])) {
-        echo "{$things[$i]}" . PHP_EOL;
-    } else if (is_float($things[$i])) {
-        echo "{$things[$i]}" . PHP_EOL;
-    } else if (is_integer($things[$i])) {
-        echo "{$things[$i]}" . PHP_EOL;
+    // } else if (is_bool($things[$i])) {
+        // echo "{$things[$i]}" . PHP_EOL;
+    // } else if (is_float($things[$i])) {
+        // echo "{$things[$i]}" . PHP_EOL;
+    // } else if (is_integer($things[$i])) {
+        // echo "{$things[$i]}" . PHP_EOL;
     } else if (is_null($things[$i])) {
         echo "{$things[$i]}" . PHP_EOL;
-    } else if (is_string($things[$i])) {
-        echo "{$things[$i]}" . PHP_EOL;
+    // } else if (is_string($things[$i])) {
+        // echo "{$things[$i]}" . PHP_EOL;
     }
 }
