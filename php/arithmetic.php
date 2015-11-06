@@ -3,49 +3,44 @@
 $a = 10;
 $b = 2;
 
-function add($a, $b)
-{
+function add($a, $b) {
     if (is_numeric($a) && is_numeric($b)) {
-    return $a + $b;
-} else {
-    return "ERROR: Both arguments must be numbers" . PHP_EOL;
-}
+        return $a + $b;
+    }  else {
+        return "ERROR: Both arguments must be numbers" . PHP_EOL;
+    }
 }
 
-function subtract($a, $b)
-{
+function subtract($a, $b) {
     if (is_numeric($a) && is_numeric($b)) {
-    return $a - $b;// Add code here
-} else {
-    return "ERROR: Both arguments must be numbers" . PHP_EOL;
-}
+        return $a - $b;// Add code here
+    } else {
+        return "ERROR: Both arguments must be numbers" . PHP_EOL;
+    }
 }
 
-function multiply($a, $b)
-{
+function multiply($a, $b) {
     if (is_numeric($a) && is_numeric($b)) {
-    return $a * $b;// Add code here
-} else {
-    return "ERROR: Both arguments must be numbers" . PHP_EOL;
-}
+        return $a * $b;// Add code here
+    } else {
+        return "ERROR: Both arguments must be numbers" . PHP_EOL;
+    }
 }
 
-function divide($a, $b)
-{
-    if (is_numeric($a) && is_numeric($b)) {
-    return $a / $b;// Add code here
-} else {
-    return "ERROR: Both arguments must be numbers" . PHP_EOL;
-}
+function divide($a, $b) {
+    if (is_numeric($a) && is_numeric($b) && ($a) != 0 && ($b) !=0) {
+        return $a / $b;// Add code here
+    } else {
+        return "ERROR: Both arguments must be numbers and or Zero is not divisible. Try again." . PHP_EOL;
+    }
 }
 
-function modulus($a, $b) 
-{
+function modulus($a, $b) {
     if (is_numeric($a) && is_numeric($b)) {
-    return $a % $b;
-} else {
-    return "ERROR: Both arguments must be numbers" . PHP_EOL;
-}
+        return $a % $b;
+    } else {
+        return "ERROR: Both arguments must be numbers" . PHP_EOL;
+    }
 }
 
 // function multiplyWithFor($a, $b) {
