@@ -24,4 +24,9 @@ function divide($a, $b)
 }
 echo divide(5, 4) . PHP_EOL;   
 
+function modulus($a, $b) 
+{
+    return $a % $b;
+}
+echo modulus(5, 4) . PHP_EOL;
 // Add code to test your functions here
