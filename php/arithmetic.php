@@ -13,6 +13,7 @@ function subtract($a, $b)
 
 function multiply($a, $b)
 {
+    echo $a * $b;
     // Add code here
 }
 
