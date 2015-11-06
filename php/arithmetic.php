@@ -7,6 +7,7 @@ function add($a, $b)
 
 function subtract($a, $b)
 {
+    echo $a - $b;
     // Add code here
 }
 
