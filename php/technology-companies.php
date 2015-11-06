@@ -50,6 +50,6 @@ ksort($companies);
 // print_r($companies);
 foreach ($companies as $name => $employees) {
     sort($employees);
-    print_r($name);
-    print_r($employees);
+    $companies[$name] = $employees; 
 }
+print_r($companies);
