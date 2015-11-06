@@ -1,7 +1,5 @@
 <?php
 
-
-
 $companies = [
     'Sun Microsystems' => [
         'Vinod Khosla',
