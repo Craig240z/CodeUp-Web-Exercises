@@ -1,5 +1,7 @@
 <?php
 
+
+
 $companies = [
     'Sun Microsystems' => [
         'Vinod Khosla',
@@ -44,3 +46,4 @@ $companies = [
         'Jean-Louis Gassée'
     ]
 ];
+print_r($companies);
