@@ -4,33 +4,17 @@ $famousFakePhysicists = 'Gordon Freeman, Samantha Carter, Sheldon Cooper, Quinn 
 
 $physicistsArray = explode(', ', $famousFakePhysicists);
 
-$name = 'and ' . array_pop($physicistsArray);
 
-array_push($physicistsArray, $name);
+function humanizedList($physicistsArray, $sort = false)  {
+    if ($sort) {
+        sort($physicistsArray); 
+    }
+    $name = 'and ' . array_pop($physicistsArray);
+    array_push($physicistsArray, $name);
+    $famousFakePhysicists = implode(', ', $physicistsArray);
+    return $famousFakePhysicists;
+}
 
-$famousFakePhysicists = implode(', ', $physicistsArray);
-
-print_r($physicistsArray);
-
-
+$famousFakePhysicists = humanizedList($physicistsArray);
 
 echo "Some of the most famous fictional theoretical physicists are {$famousFakePhysicists}.";
-
-function humanizedList($physicistsArray) {
-
-}
-   // Your solution goes here!
-
- // List of famous peeps
- $physicistsString = 'Gordon Freeman, Samantha Carter, Sheldon Cooper, Quinn Mallory, Bruce Banner, Tony Stark';
-
- // TODO: Convert the string into an array
- $physicistsArray = [];
-
- // Humanize that list
- $famousFakePhysicists = humanizedList($physicistsArray);
-
- // Output sentence
- echo "Some of the most famous fictional theoretical physicists are {$famousFakePhysicists}.";
-
- ?>
