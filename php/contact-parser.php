@@ -1,18 +1,40 @@
 <?php
 
-// function parseContacts($filename)
+function parseContacts($filename)
+{
+        $contactsArray = array();
+
+        $handle = fopen($filename, 'r');
+        $contentString = fread($handle, filesize($filename));
+        $contentString = trim($contentString);
+
+        $arrayOfStrings = explode("\n", $contentString);
+
+        foreach ($arrayOfStrings as $personContactInfoString) {
+            $personInfoArray = explode('|', $personContactInfoString);
+            $name = $personInfoArray[0];
+            $phoneNumber = $personInfoArray[1];
+            $areaCode = substr($phoneNumber, 0, 3);
+            $middle = substr($phoneNumber, 3, 3);
+            $lastFour = substr($phoneNumber, -4); 
+
+            $contactsArray[] = [
+                "name" => $name,
+                "number" => $areaCode . "-" . $middle . "-" . $lastFour
+            ]; 
+        }
+        fclose($handle);
+        $contactsArray[] = $contactsArray;
+}
 // {
-//     $contacts = array();
-
-//     // todo - read file and parse contacts
-
-//     return $contacts;
+// function addDashessToPhoneNumber($phoneNumber)
+// {
+//     $areaCode = substr($phoneNumber, 0, 3);
+//     $middle = substr($phoneNumber, 3, 3);
+//     $lastFour = substr($phoneNumber, -4); 
+//     return $areaCode . "-" . $middle . "-" . $lastFour;
 // }
 
-// var_dump(parseContacts('contacts.txt'));
-
-$filename = 'contacts.txt';
-$handle = fopen($filename, 'r');
-$contents = fread($handle, filename($filename));
-echo $contents;
-fclose($handle;)
+        // return $contactsArray;
+// }
+var_dump(parseContacts('../data/contacts.txt'));
