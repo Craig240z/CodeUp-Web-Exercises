@@ -1,18 +1,30 @@
 <?php
 
+date_default_timezone_set('America/Dallas');
+
 function logMessage($logLevel, $message)
 {
+
+    $todayDate = date('Y-m-d');
+    $todayTime = date('H:i:s');
+    $filename = '../data/log-' . $todayDate  . '.log';
+
     $handle = fopen($filename, 'a');
-        $todayDate = date("Y-M-D");
-        $filename = '..data/log-' . $today  . '.log';
-        $todayTime = $todayDate . '' . time("H:M:S");
 
+    $data = $todayDate . ' ' . $todayTime . ' [' . $logLevel . '] ' . $message;
+    fwrite($handle, $data . PHP_EOL);
 
-// foreach ($newCities as $city) {
-//     fwrite($handle, PHP_EOL . $city);
-// }
-// fclose($handle);// todo - complete this function
-// }
+    fclose($handle);// todo - complete this function
+}
 
+function logInfo($message) {
+    logMessage ("INFO", $message);
+    logMessage ("TERMINAL" , $message);
+}
+
+function logError($message) {
+    logMessage ("ERROR" , $message);
+}
+ 
 logMessage("INFO", "This is an info message.");
-logMessage("ERROR", "This is an info message.");
+logMessage("ERROR", "This is an error message. Check your CODE!");
