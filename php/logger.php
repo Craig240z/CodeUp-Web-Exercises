@@ -14,7 +14,7 @@ function logMessage($logLevel, $message)
     $data = $todayDate . ' ' . $todayTime . ' [' . $logLevel . '] ' . $message;
     fwrite($handle, $data . PHP_EOL);
 
-    fclose($handle);// todo - complete this function
+    fclose($handle);
 }
 
 function logInfo($message) {
