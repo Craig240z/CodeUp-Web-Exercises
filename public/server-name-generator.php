@@ -1,8 +1,4 @@
 <?php 
-
-$zFightersArray = array('Goku', 'Piccolo', 'Krillin', 'Tien', 'Yamcha', 'Chaozu', 'Master Roshi', 'Yajirobe', 'Vegeta', 'Gohan', 'Goten', 'Gotenks', 'Trunks');
-$zAttributesArray = array('Strong-willed', 'Rude', 'Loyal', 'Courageous', 'Impressive', 'Powerful', 'Fast', 'Destructive', 'Tenacious', 'Mercilous', 'Noble', 'Hero', 'Ultimate', 'Devastating');
-
 function randomServerNameGenerator($localzFightersArray, $localzAttributesArray) {
     $zAttribute = array_rand($localzAttributesArray);
     $zFighter = array_rand($localzFightersArray);
@@ -11,7 +7,17 @@ function randomServerNameGenerator($localzFightersArray, $localzAttributesArray)
     return $localServerName;
 }
 
-$serverName = randomServerNameGenerator ($zAttributesArray, $zFightersArray);
+function page_controller() 
+{
+    $zFightersArray = array('Goku', 'Piccolo', 'Krillin', 'Tien', 'Yamcha', 'Chaozu', 'Master Roshi', 'Yajirobe', 'Vegeta', 'Gohan', 'Goten', 'Gotenks', 'Trunks');
+    $zAttributesArray = array('Strong-willed', 'Rude', 'Loyal', 'Courageous', 'Impressive', 'Powerful', 'Fast', 'Destructive', 'Tenacious', 'Mercilous', 'Noble', 'Hero', 'Ultimate', 'Devastating');
+
+    $serverName = randomServerNameGenerator ($zAttributesArray, $zFightersArray); 
+    $data = array();
+    $data['serverName'] = $serverName;
+    return $data;
+}
+extract(page_controller());
 ?>
 
 <!DOCTYPE html>
