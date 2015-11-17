@@ -29,7 +29,7 @@ if(isset($_SESSION['LOGGED_IN_USER'])) {
         header('location: login.php');
         die();
    } 
-   $userName = $_SESSION['userName'];
+   $username = $_SESSION['username'];
 ?>
 <!DOCTYPE html>
 <html>
