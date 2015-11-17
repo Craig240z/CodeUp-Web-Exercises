@@ -17,7 +17,7 @@ if(!isset($_SESSION['LOGGED_IN_USER'])) {
 </head>
 <body>
      <h2>You are an authorized user.</h2>
-    <h2>You are logged in as <?= $username ?></h2>
+    <h2>You are logged in as <?= escape($username) ?></h2>
     <a href="logout.php">Logout</a>
 </body>
 </html>
