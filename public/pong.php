@@ -1,10 +1,10 @@
 <?php
 
-include 'functions.php';
+include '../Input.php';
 
     function pageController()
 {
-       $click = inputHas('click') ? inputGet('click'): 0;
+       $click = Input::has('click') ? Input::get('click'): 0;
 
        $hit     = $click+1;
        $miss    = 'gameOver';
