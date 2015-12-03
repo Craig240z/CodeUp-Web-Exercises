@@ -27,11 +27,11 @@ conditonals in JS -
     - check properties of given elements or matched elements
     - filtering data
     - make decisions based on criteria in the if statement
-    - condition of things in the DOM, state of things, sttributes
+    - condition of things in the DOM, state of things, attributes
     - events - onload, click, keydown, keypress, focus, unfocus...
 
 conditional in PHP (or any server side language)
-true && true   t
+true && true   
 true && false  
 
 PHP - Server Side language

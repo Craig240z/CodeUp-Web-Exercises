@@ -1,12 +1,13 @@
 <?php
 
-for(int i = 1; i <= 100; ++i){
-.int modThree = i % 3;
-.int modFive = i % 5;
-.if( modThree && modFive ){
-..print i; // neither divisible by 3 nor 5
-.}else{
-..if( !modThree ) print "Fizz";
-..if( !modFive ) print "Buzz";
-.}
+for ($i = 1; $i <= 100; $i++) {
+    if ($i % 15 == 0) {
+        echo "FizzBuzz" . PHP_EOL; 
+    } else if ($i % 3 == 0) {
+        echo "Fizz" . PHP_EOL;
+    } else if ($i % 5 == 0) {
+        echo "Buzz" . PHP_EOL;
+    } else {
+        echo "$i" . PHP_EOL;
+    }
 }
