@@ -1,4 +1,7 @@
 <?php 
+require_once 'Auth.php';
+require_once 'Input.php';
+
 session_start();
 
 // get the current session id

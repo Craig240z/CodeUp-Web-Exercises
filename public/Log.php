@@ -2,7 +2,20 @@
 
 class Log
 {
-    public $filename = '';
+    // public $filename = '';
+    public $filename;
+    public $handle;
+
+    public function __construct($prefix = 'log')
+    {
+        $today = date('Y-m-d');
+
+        $this->filename = '{$prefix} - {$today}.log';
+
+        $this->handle = fopen($this->filename, 'a');
+    
+    }
+
 
     public function logMessages($logLevel, $messages)
     {
@@ -14,12 +27,10 @@ class Log
 
         $stringToWrite = "$dateWithTime [{$logLevel}] $messages";
 
-        $handle = fopen($this->filename, 'a');
 
         // $data = $todayDate . ' ' . $todayTime . ' [' . $logLevel . '] ' . $messages;
-        fwrite($handle, PHP_EOL . $stringToWrite);
+        fwrite($this->handle, PHP_EOL . $stringToWrite);
 
-        fclose($handle);
 
     }
 
@@ -32,4 +43,9 @@ class Log
     {
         $this->logMessages("ERROR" , $messages);  
     }
+    public function __destruct() {
+        fclose($this->handle);
+
+    }
 }
+?>
