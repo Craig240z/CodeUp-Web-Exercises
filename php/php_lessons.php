@@ -18,27 +18,27 @@ function sum($a,$b) {
     return $a + $b;
 }
 
-// Function Square of a number.
+// // Function Square of a number.
 function square($a) {
     return $a * $a;
 }
 
-// Method 1: Function sumSquares takes sum of two numbers and sqaures them. 
-function sumSquares($a,$b) {
-    return ($a * $a) + ($b * $b);
-} 
+// // Method 1: Function sumSquares takes sum of two numbers and sqaures them. 
+// function sumSquares($a,$b) {
+//     return ($a * $a) + ($b * $b);
+// } 
 
-// Method 2: Function sumSquares takes sum of two numbers and sqaures them.
-function sumSquares($a,$b) {
-    return square($a) + square($b);
-}
+// // Method 2: Function sumSquares takes sum of two numbers and sqaures them.
+// function sumSquares($a,$b) {
+//     return square($a) + square($b);
+// }
 
 // Method 3: Function sumSquares takes sum of two numbers and sqaures them.
-function sumSquares($a,$b) {
-    $aSquared = square($a);
-    $bSquared = square($b);
-    return sum($aSquared,$bSquared); 
-}
+// function sumSquares($a,$b) {
+//     $aSquared = square($a);
+//     $bSquared = square($b);
+//     return sum($aSquared,$bSquared); 
+// }
 
 // Method 4: Function sumSquares takes sum of two numbers and sqaures them.
 function sumSquares($x,$y) {
@@ -46,6 +46,7 @@ function sumSquares($x,$y) {
 } 
 echo "The sum of the squares of four and two is" . sumSquares(4,2);
 echo '<br>';
+
 
 $states = array(
     'AL' => 'Alabama',
@@ -103,14 +104,24 @@ $states = array(
     'WY' => 'Wyoming',
 );
 
-foreach ($states as $key => $state) {
-    if($state == 'Texas') {
-        echo "YEEHAW!";
-    }
-    if($key == 'DE') {
-        echo "I\'m from Delaware.";
-    }
-    if($state == 'a','e','i','o','u') {
-        echo 
-    }
-} 
+// foreach ($states as $key => $state) {
+//     if($state == 'Texas') {
+//         echo "YEEHAW!";
+//     }
+//     if($key == 'DE') {
+//         echo "I\'m from Delaware.";
+//     }
+//     }; 
+
+print_r(explode(",",$array));
+echo $array;
+
+// foreach ($states as $key => $state) {
+//     if($state == "") {
+//         print_r(" ", "e a i o u",0);
+//     }
+
+// foreach (count_chars($state, 1) as $i => $val) {
+//    echo "There were $val instance(s) of \"" , chr($i) , "\" in the string.\n";
+// }
+// };

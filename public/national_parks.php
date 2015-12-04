@@ -21,6 +21,35 @@ $stmt = $dbc->query($selectAll);
 
 $parks = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+function insertPark($dbc, $park, $date_established, $description, $area_in_acres, $location)
+{
+
+
+    $query = "INSERT INTO national_parks (park, location, date_established, area_in_acres, description) VALUES (:park, :location, :date_established, :area_in_acres, :description)";
+
+    $stmt = $dbc->prepare($query);
+    $stmt->bindValue(':park', $park, PDO::PARAM_STR);
+    $stmt->bindValue(':location', $location, PDO::PARAM_STR);
+    $stmt->bindValue(':date_established', $date_established, PDO::PARAM_STR);
+    $stmt->bindValue(':area_in_acres', $area_in_acres, PDO::PARAM_STR);
+    $stmt->bindValue(':description', $description, PDO::PARAM_STR);
+
+    $stmt->execute();
+
+}
+if(!empty($_POST)) {
+    echo 'notempty';
+    $park = Input::get('park');
+    $date_established = Input::get('date_established');
+    $area_in_acres = Input::get('area_in_acres');
+    $description = Input::get('description');
+    $location = Input::get('location');
+    if($park != '' && $date_established != '' && $area_in_acres != '' && $description != '' && $location != '') {
+        echo 'inserted';
+        insertPark($dbc, $park, $date_established, $description, $area_in_acres, $location);
+    }
+
+}
 
 // $max_page = ceil($count / $limit)
 // SELECT  location
@@ -60,12 +89,38 @@ $parks = $stmt->fetchAll(PDO::FETCH_ASSOC);
               <button>Submit</button>
             </div>
             </form>
+            <form method="POST">
+                <div class="form-group">
+                    <label for="park">Enter a National Park:</label>
+                    <input type="text" class="form-control" name="park" id="park">
+                </div>
+                <div class="form-group">
+                    <label for="location">Enter a Location:</label>
+                    <input type="text" class="form-control" name="location" id="location">
+                </div>
+                <div class="form-group">
+                    <label for="area_in_acres">Enter Acres:</label>
+                    <input type="text" class="form-control" name="area_in_acres" id="area_in_acres">
+                </div>
+                <div class="form-group">
+                    <label for="date_established">Enter Date Established:</label>
+                    <input type="text" class="form-control" name="date_established" id="date_established">
+                </div>
+                <div class="form-group">
+                    <label for="description">Enter a Description:</label>
+                    <input type="text" class="form-control" name="description" id="description">
+                </div>
+                <div class="form-group">
+                    <button>Submit</button>
+                </div>
+            </form>
         <table class="table table-striped">
             <tr>
                 <th>Park Name</th>
                 <th>Location</th>
                 <th>Area in Acres</th>
                 <th>Date Established</th>
+                <th>Description</th>
             </tr>
         <?php
             foreach($parks as $park): ?>
@@ -74,6 +129,7 @@ $parks = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         <td><?= $park['location']?></td>
                         <td><?= $park['area_in_acres']?></td>
                         <td><?= $park['date_established']?></td>
+                        <td><?= $park['description'] ?></td>
                 </tr> 
             <?php endforeach; ?>
         </table>

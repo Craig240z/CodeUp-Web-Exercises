@@ -11,8 +11,9 @@ $query ='CREATE TABLE national_parks (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     park VARCHAR(240) NOT NULL,
     location VARCHAR(50) NOT NULL,
-    date_established VARCHAR(50) NOT NULL,
+    date_established date NOT NULL,
     area_in_acres double NOT NULL,
+    description TEXT NOT NULL,
     PRIMARY KEY (id)
 )';
 
