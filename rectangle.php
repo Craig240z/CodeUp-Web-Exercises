@@ -12,4 +12,8 @@ class Rectangle {
     public function area() {
         return $this->height * $this->width;
     }
+    public function perimeter() {
+       
+        return ($this->width * 2) + ($this->height * 2);
+    }
 }
