@@ -32,23 +32,33 @@ class Input
 
     public static function getString($key)
     {
-        $string = $this->get($key);
-        if is_string($string) {
-        return $string;
+         // Check if value is a string
+        if (!self::has($key)) {
+            throw new Exception('This string field must be filled!');
+        } else if (!is_string(self::get($key)) {
+            throw new Exception('This must be a string!!');
+        } else {
+            return self::get($key);
         }
+        
     }
 
     public static function getNumber($key)
     {
-        $number = $this->get($key);
-        if is_numeric($number) {
-        return $number;
+        // Check if value is a number
+        if (!self::has($key)) {
+            throw new Exception('This number field must be filled!');
+        } else if (!is_numeric(self::get($key)) {
+            throw new Exception('This must be a number!!');
+        } else {
+            return self::get($key);
         }
+
     }
 
-     public static function getdate($key)
+     public static function() getdate($key)
     {
-        $date - $this->get($key);
+        $date = self::get($key);
         if date_timestamp_get($date) {
         return $date;
         }
