@@ -30,6 +30,14 @@ class Input
         // TODO: Fill in this function
     }
 
+    public static function getString($key)
+    {
+        $string = $this->get($key);
+        if is_string($string) {
+        return $string;
+        }
+    }
+
     ///////////////////////////////////////////////////////////////////////////
     //                      DO NOT EDIT ANYTHING BELOW!!                     //
     // The Input class should not ever be instantiated, so we prevent the    //
