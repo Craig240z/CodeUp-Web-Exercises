@@ -39,11 +39,12 @@ function insertPark($dbc, $park, $date_established, $description, $area_in_acres
 }
 if(!empty($_POST)) {
     echo 'notempty';
-    $park = Input::get('park');
-    $date_established = Input::get('date_established');
-    $area_in_acres = Input::get('area_in_acres');
-    $description = Input::get('description');
-    $location = Input::get('location');
+    $park = Input::getString('park');
+    $date_established = Input::getDate('date_established');
+    $date_established = $date_established->format('Y-m-d');
+    $area_in_acres = Input::getNumber('area_in_acres');
+    $description = Input::getString('description');
+    $location = Input::getString('location');
     if($park != '' && $date_established != '' && $area_in_acres != '' && $description != '' && $location != '') {
         echo 'inserted';
         insertPark($dbc, $park, $date_established, $description, $area_in_acres, $location);
