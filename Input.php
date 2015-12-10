@@ -46,6 +46,14 @@ class Input
         }
     }
 
+     public static function getdate($key)
+    {
+        $date - $this->get($key);
+        if date_timestamp_get($date) {
+        return $date;
+        }
+    }
+
     ///////////////////////////////////////////////////////////////////////////
     //                      DO NOT EDIT ANYTHING BELOW!!                     //
     // The Input class should not ever be instantiated, so we prevent the    //
