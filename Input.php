@@ -38,6 +38,14 @@ class Input
         }
     }
 
+    public static function getNumber($key)
+    {
+        $number = $this->get($key);
+        if is_numeric($number) {
+        return $number;
+        }
+    }
+
     ///////////////////////////////////////////////////////////////////////////
     //                      DO NOT EDIT ANYTHING BELOW!!                     //
     // The Input class should not ever be instantiated, so we prevent the    //
