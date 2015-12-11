@@ -4,26 +4,44 @@ require_once '../config_parks.php';
 require_once '../db_connect.php';
 require_once '../Input.php';
 
-$page = Input::has('page') ? Input::get('page') : 1;
-
-$page = ($page > 1) ? $page : 1;  // Is value greater than 0 if not set to 1.
-
-$page = (is_numeric($page)) ? $page : 1; // If input not numeric then return 1.
-
-
-$limit = Input::has('limit') ? Input::get('limit') : 4;
-
-$offset = $page * $limit - $limit;
-
-$selectAll = "SELECT * FROM national_parks LIMIT $limit OFFSET $offset";
-
-$stmt = $dbc->query($selectAll);
-
-$parks = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-function insertPark($dbc, $park, $date_established, $description, $area_in_acres, $location)
+function checkValues()
 {
+    return Input::notEmpty('park') && Input::notEmpty('location') && Input::notEmpty('date_established') && Input::notEmpty('area_in_acres') && Input::notEmpty('description');
+}
 
+function insertPark($dbc) 
+{
+    $errors = [];
+
+    try {
+        $park = Input::has('park') ? Input::getString('park') : null;
+    } catch (Exception $e) {
+        array_push($errors, $e->getMessage());
+    }
+    try {
+        $location = Input::has('location') ? Input::getString('location') : null;
+    } catch (Exception $e) {
+        array_push($errors, $e->getMessage());
+    }
+    try {
+        $date_established = Input::has('date_established') ? Input::getDate('date_established') : null;
+        $date_established = $date_established->format('Y-m-d');
+    } catch (Exception $e) {
+        array_push($errors, $e->getMessage());
+    }
+    try {
+        $area_in_acres = Input::has('area_in_acres') ? Input::getNumber('area_in_acres') : null;
+    } catch (Exception $e) {
+        array_push($errors, $e->getMessage());
+    }
+    try {
+        $description = Input::has('description') ? Input::getString('description') : null;
+    } catch (Exception $e) {
+        array_push($errors, $e->getMessage());
+    }
+    if (!empty($errors)) {
+        return $errors;
+    }
 
     $query = "INSERT INTO national_parks (park, location, date_established, area_in_acres, description) VALUES (:park, :location, :date_established, :area_in_acres, :description)";
 
@@ -36,21 +54,77 @@ function insertPark($dbc, $park, $date_established, $description, $area_in_acres
 
     $stmt->execute();
 
+    return $errors;
 }
-if(!empty($_POST)) {
-    echo 'notempty';
-    $park = Input::getString('park');
-    $date_established = Input::getDate('date_established');
-    $date_established = $date_established->format('Y-m-d');
-    $area_in_acres = Input::getNumber('area_in_acres');
-    $description = Input::getString('description');
-    $location = Input::getString('location');
-    if($park != '' && $date_established != '' && $area_in_acres != '' && $description != '' && $location != '') {
-        echo 'inserted';
-        insertPark($dbc, $park, $date_established, $description, $area_in_acres, $location);
-    }
 
+function deletePark($dbc) 
+{
+    if (Input::has('id')) {
+        $delete_column = "DELETE FROM national_parks WHERE id = :id";
+        $del = $dbc->prepare($delete_column);
+        $del->bindValue(':id', Input::get('id'), PDO::PARAM_STR);
+        $del->execute();
+    }
 }
+
+function pageController($dbc)
+{
+    $errors = null;
+
+    if (!empty($_POST)) {
+        if (checkValues()) {
+            $errors = insertPark($dbc);
+        } else {
+            $message = "Invalid format. Do over!";
+            $javascript = "<script type='text/javascript'>alert('$message');<?script>";
+            echo $javascript;
+        }
+    }
+    deletePark($dbc);
+
+    // Count
+    $countAll = 'SELECT count(*) FROM national_parks';
+    $count_stmt = $dbc->query($countAll);
+    $count = $count_stmt->fetchColumn();
+    $limit = 2;
+    $max_page = ceil($count / $limit);
+
+    // Sanitizing
+    $page = Input::has('page') ? Input::get('page') : 1;
+    $page = ($page > 1) ? $page : 1;  // Is value greater than 0 if not set to 1.
+    $page = (is_numeric($page)) ? $page : 1; // If input not numeric then return 1.
+    $page = ($page <= $max_page) ? $page : $max_page;
+
+    // Offset
+    $offset = $page * $limit - $limit;
+    $selectAll = "SELECT * FROM national_parks LIMIT $limit OFFSET $offset";
+    $stmt = $dbc->query($selectAll);
+    $stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
+    $stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
+    $stmt->execute();
+    $parks = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    return array(
+        'page' => $page,
+        'parks' => $parks,
+        'errors' => $errors,
+        'max_page' => $max_page,
+        'limit' => $limit
+        );
+}
+extract(pageController($dbc));
+
+//     $limit = Input::has('limit') ? Input::get('limit') : 4;
+// if(!empty($_POST)) {
+//     echo 'notempty';
+//         if($park != '' && $date_established != '' && $area_in_acres != '' && $description != '' && $location != '') {
+//             echo 'inserted';
+//             insertPark($dbc, $park, $date_established, $description, $area_in_acres, $location);
+//         }
+//     }
+
+// }
+
 
 // $max_page = ceil($count / $limit)
 // SELECT  location
@@ -91,6 +165,12 @@ if(!empty($_POST)) {
             </div>
             </form>
             <form method="POST">
+                    <?php if(!empty($errors)): ?>
+                        <?php foreach ($errors as $errorMessage): ?> 
+                            <h4><?= $errorMessage ?></h4>
+                        <?php endforeach ?>
+                    <?php endif ?>
+        
                 <div class="form-group">
                     <label for="park">Enter a National Park:</label>
                     <input type="text" class="form-control" name="park" id="park">

@@ -2,6 +2,12 @@
 
 class Input
 {
+    public static function notEmpty($key)
+    {
+        if(isset($_REQUEST[$key]) && $_REQUEST[$key] != '') {
+            return true;
+        }
+    }
     /**
      * Check if a given value was passed in the request
      *
@@ -30,38 +36,46 @@ class Input
         // TODO: Fill in this function
     }
 
-    public static function getString($key)
+    public static function getString($key, $min = 1, $max = 250)
     {
          // Check if value is a string
         if (!self::has($key)) {
-            throw new Exception('This string field must be filled!');
-        } else if (!is_string(self::get($key))) {
-            throw new Exception('This must be a string!!');
-        } else {
-            return self::get($key);
-        }
-        
+            throw new OutOfRangeException('This string field must be filled!');
+        } else if (!is_string($key)) {
+            throw new DomainException('This must be a string!!');
+        } else if (!is_numeric($min) or !is_numeric($max)) {
+            throw new InvalidArgumentException('The field must be filled with numbers.');
+        } else if (is_string($key) < is_numeric($min) or is_string($key) > is_numeric($max)) {
+            throw new LengthException('The string is shorter than the minimum or longer than the maximun.');
+        } 
+        return ($key);
     }
 
-    public static function getNumber($key)
+    public static function getNumber($key, $min = 1, $max = 250)
     {
         // Check if value is a number
         if (!self::has($key)) {
-            throw new Exception('This number field must be filled!');
-        } else if (!is_numeric(self::get($key))) {
-            throw new Exception('This must be a number!!');
+            throw new InvalidArgumentException('This number field must be filled!');
+        } else if (!is_numeric($key)) {
+            throw new InvalidArgumentException('This must be a number!!');
+        } else if (($key) < is_numeric($min) or ($key) > is_numeric($max)) {
+            throw new RangeException('The number is less than the minimum or greater than the maximum.');
         } else {
-            return self::get($key);
+            return ($key);
         }
 
     }
 
-     public static function getdate($key)
+     public static function getDate($key)
     {
         // Check for correct date and or time
         $inputValue = self::get($key);
-        $dateTimeObject = New DateTime($inputValue);
-            
+       try 
+        {
+            $dateTimeObject = New DateTime($inputValue);
+        } catch (Exception $e) {
+            throw new Exception("{$key} must be a valid date in the format of MM/DD/YYYY");
+        }    
         return ($dateTimeObject);
     }
 
