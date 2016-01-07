@@ -18,4 +18,27 @@ function square($number) {
     return $square;
 } 
 echo square(7);
+// 
+
+function upperCase($string) {
+    if(!is_string($string))
+        return false;
+}
+    return strtoupper($string);
+
+    echo upperCase([]);
+    echo upperCase("foo");
+
+// 
+
+function lowerCase($string) {
+    if(!is_string($string))
+        return false;
+}
+    return strtolower($string);
+
+    echo lowerCase([]);
+    echo lowerCase("FOO");
+
+// 
 
